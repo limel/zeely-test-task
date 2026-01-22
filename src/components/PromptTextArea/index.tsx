@@ -18,7 +18,7 @@ function PromptTextArea() {
 					placeholder="Type AI prompt here..."
 					onChange={(e) => onChange(e.target.value)}
 					value={value}
-					className="max-h-[130px] resize-none"
+					className="max-h-32.5 resize-none"
 				/>
 				<InputGroupAddon align="block-end" className="justify-between pr-4!">
 					<InputGroupButton variant="plain-text" className="text-xs pl-1.75!" size="md">
@@ -71,4 +71,6 @@ function PromptTextArea() {
 	);
 }
 export default PromptTextArea;
+
+
 

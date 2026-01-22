@@ -21,13 +21,14 @@ function BackgroundCard({
 	return (
 		<Card
 			className={cn(
-				"w-full max-w-sm aspect-9/16 overflow-hidden relative cursor-pointer rounded-[12px] border-2 border-transparent transition-border duration-200 ease-in-out hover:border-gray-400",
+				"w-full max-w-sm aspect-9/16 overflow-hidden relative cursor-pointer border-2 border-transparent transition-border duration-200 ease-in-out",
+				!selected && item.type !== "progress" && "hover:border-gray-400",
 				selected && "border-black",
-				item.type === "progress" && "bg-black"
+				item.type === "progress" && "bg-black",
 			)}
 		>
 			{isDefault && (
-				<Badge asChild className="absolute top-[6px] left-[5px] z-20">
+				<Badge asChild className="absolute top-1.5 left-1.25 z-20">
 					<span className="leading-1">Default</span>
 				</Badge>
 			)}
@@ -37,8 +38,8 @@ function BackgroundCard({
 						<img
 							src="./avatar.png"
 							srcSet="
-            ./avatar.png 1x,
-            ./avatar@2x.png 2x,"
+							./avatar.png 1x,
+							./avatar@2x.png 2x,"
 							sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
 							alt="Avatar"
 							className="absolute inset-0 h-full w-full object-cover z-10"
@@ -67,7 +68,7 @@ function BackgroundCard({
 							<ProgressRing value={item.percent} size={65} stroke={3} labelClassName="text-sm" />
 						</div>
 
-						<p className="text-[12px] mt-8.5 text-white">{item.estimate}</p>
+						<p className="text-xs mt-8.5 text-white">{item.estimate}</p>
 					</div>
 				)}
 			</CardContent>
@@ -75,5 +76,5 @@ function BackgroundCard({
 	);
 }
 
-export default BackgroundCard;
 
+export default BackgroundCard;
